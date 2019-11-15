@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+}
+
+h1, h2, h3 {
+    font-family: 'Roboto', sans-serif;
+    color: rgb(61, 61, 61);
+    margin-left: 1%;
+    margin-bottom: 5%;
+}
+
+.centered_h2 {
+    text-align: center;
+    margin-bottom: 5%;
+}
+
+h1 {
+    text-align: center;
+    font-size: 7em;
+}
+
+#div_menu {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background-color: rgb(61, 61, 61);
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#menu li {
+    display: inline;
+    background-color: rgb(61, 61, 61);
+}
+
+#menu a {
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px 10px 20px;
+}
+
+#menu a:active{
+    background-color: #555;
+}
+
+#menu a:hover {
+    background-color: rgb(247, 207, 28);
+    color: white;
+}
+
+.active {
+    background-color: rgb(255, 217, 0);
+    color: white !important;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 20px 20px 20px 20px;
+}
+
+table, tr, td, th {
+    border: solid 2px lightgray;
+}
+
+th, td {
+    padding: 15px;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+th {
+    background-color: #E6FFF3;
+    color: #389CFF;
+}
