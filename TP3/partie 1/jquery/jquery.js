@@ -9,6 +9,8 @@ var belgique = ["Bruxelles", "Ostende", "Liège", "Bruges"];
 var italie = ["Rome", "Turin", "Naples", "Milan"];
 var espagne = ["Barcelonne", "Madrid", "Séville", "Bilbao"];
 
+var destinationCheck = "Ajouter Destination";
+
 function valider(){
     var btn = $("#btn_submit");
     var saisie = $("#pays_select").val();
@@ -39,7 +41,7 @@ function valider(){
     }
 
     if (trouve == true){
-        if (btn.text() === "Ajouter destination"){
+        if (btn.html() == destinationCheck){
             var choix = window.confirm("Voulez vous ajouter " + saisie + " en " + pays + " ?");
     
             if (choix){
@@ -60,5 +62,5 @@ function afficheRecommandations(btn, div, pays, tempList){
         var li = "<li>" + tempList[i] + "</li>";
         div.append("<ul>" + li + "</ul>");
     }
-    btn.html("Ajouter Destination");
+    btn.html(destinationCheck);
 }
