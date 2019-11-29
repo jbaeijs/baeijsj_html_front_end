@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <link href="css/main.css" rel="stylesheet">
+    <link href="css/players.css" rel="stylesheet">
+    <script type="text/javascript" src="static/players.js"></script>
     <title>Joueurs</title>
 </head>
 <body>
@@ -31,49 +33,22 @@
             </li>
          </ul>
     </div>
-    <table summary="Tableau de l'équipe A">
+    <table summary="Tableau de l'équipe A" id="playersTable">
         <tr>
             <th>Photo</th>
             <th>Nom</th>
             <th>Poste</th>
             <th>Description</th>
-            <th></th>
-        </tr>
-        <tr>
-            <td>
-                <img src="assets/img/j1.jpg" alt="puyol" width="100">
-            </td>
-            <td>Jean-Louis</td>
-            <td>Attaquant Gauche</td>
-            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam corrupti esse corporis error? Culpa possimus, exercitationem maxime dolorem inventore quis, ea et quam doloremque explicabo distinctio tempora labore illo officia?</td>
-            <td>
-                <button>
-                    Agrandir
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td><img src="assets/img/j2.jpg" alt="puyol" width="100"></td>
-            <td>Jean-Pierre</td>
-            <td>Attaquant Droit</td>
-            <td>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum eum eos at sed sit illum cupiditate deserunt saepe ex, commodi vitae repudiandae unde, aliquid recusandae! Vel harum enim nesciunt nemo.</td>
-            <td>
-                <button>
-                    Agrandir
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td><img src="assets/img/walderama.jpg" alt="puyol" width="100"></td>
-            <td>Jean-Michel</td>
-            <td>Gardien</td>
-            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, rem voluptates repellendus et est repellat vero fuga neque, soluta sit culpa debitis! Adipisci minus natus laborum soluta officiis voluptatibus cumque?</td>
-            <td>
-                <button>
-                        Agrandir
-                </button>
-            </td>
+            <th>Détails</th>
         </tr>
     </table>
+
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p id="modal_body"></p>
+        </div>
+    </div>
 </body>
 </html>
