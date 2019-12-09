@@ -126,8 +126,8 @@ function genererTableau(){
 }
 
 function getStats(name){
-    console.log(name);$('#myModal').show();
-    $('#exampleModalCenter').modal('show');
+    console.log(name);
+    $("#myModal").modal('show');
 }
 
 function close(){
