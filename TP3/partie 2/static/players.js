@@ -7,13 +7,15 @@ var players = {
         "name": "Tuukka Rask",
         "poste": "Gardien",
         "description": "lorem",
+        "stats": "256 victoires, 152 défaites"
     },
     {
         "id": 1,
         "img": "assets/img/krug",
         "name": "Torey Krug",
         "poste": "Défenseur",
-        "description": "lorem",   
+        "description": "lorem",
+        "stats": "12 Buts, 25 assists"   
     },
     {
         "id": 2,
@@ -21,6 +23,7 @@ var players = {
         "name": "Patrice Bergeron",
         "poste": "Attaquant",
         "description": "lorem",
+        "stats": "25 Buts, 48 assists"   
     },
     {
         "id": 3,
@@ -28,6 +31,7 @@ var players = {
         "name": "David Pasternak",
         "poste": "Attaquant",
         "description": "lorem",
+        "stats": "56 Buts, 14 assists"   
     }]
 }
 
@@ -41,7 +45,10 @@ function init(){
 function genererTableau(){
     var table = document.getElementById("playersTable");
 
-    console.log(players.joueurs);
+    while (table.childNodes.length > 1) {
+        table.removeChild(table.lastChild);
+    }
+
     for (var i = 0; i < players.joueurs.length; i++){
         var currentObject = players.joueurs[i];
 
@@ -74,8 +81,26 @@ function genererTableau(){
             getStats(e.target.parentElement.parentElement.children[1].innerHTML);
         });
 
+        var a_modif = document.createElement("a");
+        a_modif.innerHTML = "Modifier";
+        a_modif.setAttribute("href", "#");
+        a_modif.setAttribute("class", "custom_button");
+        a_modif.addEventListener("click", function(e) {
+            modifier(e.target.parentElement.parentElement.children[1].innerHTML);
+        });
+        var a_sup = document.createElement("a");
+        a_sup.innerHTML = "Supprimer";
+        a_sup.setAttribute("href", "#");
+        a_sup.setAttribute("class", "custom_button");
+        a_sup.addEventListener("click", function(e) {
+            supprimer(e.target.parentElement.parentElement.children[1].innerHTML);
+        });
+
+
         var td_btn = document.createElement("td");
         td_btn.appendChild(a);
+        td_btn.appendChild(a_modif)
+        td_btn.appendChild(a_sup)
         
         tr.appendChild(td_img);
         tr.appendChild(td_name);
@@ -90,6 +115,61 @@ function genererTableau(){
 function getStats(name){
     var modal = document.getElementById("myModal");
     modal.style.display = "block";
+
+    var modal_content = document.getElementById("modal-content");
+
+    while (modal_content.childNodes.length > 2) {
+        modal_content.removeChild(modal_content.lastChild);
+    }
+
+    var found = false;
+    var i = 0;
+    
+    while (!found){
+        if (name === players.joueurs[i].name){
+            found = true;
+        }
+        i++;
+    }
+
+    var h1 = document.createElement("h1");
+    h1.innerHTML = name;
+
+    var p = document.createElement("p");
+    p.innerHTML = "Poste : " + players.joueurs[i - 1].poste + "<br>Stats : " + players.joueurs[i - 1].stats
+
+    modal_content.appendChild(h1);
+    modal_content.appendChild(p);
+}
+
+function supprimer(name){
+    var found = false;
+    var i = 0;
+    
+    while (!found){
+        if (name === players.joueurs[i].name){
+            found = true;
+        }
+        i++;
+    }
+    players.joueurs.splice(i - 1, i -1);
+    genererTableau()
+}
+
+function modifier(name){
+    var modal = document.getElementById("myModal");
+    modal.style.display = "block";
+
+    var modal_content = document.getElementById("modal-content");
+
+    while (modal_content.childNodes.length > 2) {
+        modal_content.removeChild(modal_content.lastChild);
+    }
+
+    var p = document.createElement("p");
+    p.innerHTML = 'La fonctionnalité "Modifier" est en cours de développement... '
+
+    modal_content.appendChild(p);
 }
 
 function close(){
