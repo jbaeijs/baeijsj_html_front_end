@@ -23,47 +23,6 @@ h1 {
     font-size: 7em;
 }
 
-#div_menu {
-    position: sticky;
-    z-index: 1;
-    top: 0;
-    width: 100%;
-    background-color: rgb(61, 61, 61);
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-
-#menu {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-#menu li {
-    display: inline;
-    background-color: rgb(61, 61, 61);
-}
-
-#menu a {
-    text-decoration: none;
-    color: white;
-    padding: 10px 20px 10px 20px;
-}
-
-#menu a:active{
-    background-color: #555;
-}
-
-#menu a:hover {
-    background-color: rgb(247, 207, 28);
-    color: white;
-}
-
-.active {
-    background-color: rgb(255, 217, 0);
-    color: white !important;
-}
-
 table {
     width: 80%;
     margin-top: 2%;

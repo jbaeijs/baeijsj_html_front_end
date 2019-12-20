@@ -82,6 +82,11 @@ function init(){
 
 function genererTableau(){
     var container_div = document.getElementById("cardHolder");
+
+    while (container_div.childNodes.length > 0) {
+        container_div.removeChild(container_div.lastChild);
+    }
+
     for (var i = 0; i < players.joueurs.length; i++){
         var currentObject = players.joueurs[i];
         
@@ -115,11 +120,29 @@ function genererTableau(){
             getStats(e.target.parentElement.children[1].innerHTML);
         });
 
+        var card_button_modify = document.createElement("a");
+        card_button_modify.setAttribute("href", "#");
+        card_button_modify.setAttribute("class", "custom_button");
+        card_button_modify.innerHTML = "Modifier";
+        card_button_modify.addEventListener("click", function(e) {
+            modifier(e.target.parentElement.children[1].innerHTML);
+        });
+
+        var card_button_sup = document.createElement("a");
+        card_button_sup.setAttribute("href", "#");
+        card_button_sup.setAttribute("class", "custom_button");
+        card_button_sup.innerHTML = "Supprimer";
+        card_button_sup.addEventListener("click", function(e) {
+            supprimer(e.target.parentElement.children[1].innerHTML);
+        });
+
         card_div.appendChild(card_img);
         card_div.appendChild(card_title);
         card_div.appendChild(card_poste);
         card_div.appendChild(card_description);
         card_div.appendChild(card_button);
+        card_div.appendChild(card_button_modify);
+        card_div.appendChild(card_button_sup);
         
         container_div.appendChild(card_div);
     }
@@ -129,6 +152,22 @@ function getStats(name){
     console.log(name);
     $("#myModal").modal('show');
 }
+
+function supprimer(name){
+    var found = false;
+    var i = 0;
+    
+    while (!found){
+        if (name === players.joueurs[i].name){
+            found = true;
+        }
+        i++;
+    }
+    players.joueurs.splice(i - 1, i -1);
+    genererTableau()
+}
+
+
 
 function close(){
     var modal = document.getElementById("myModal");
